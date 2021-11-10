@@ -59,19 +59,35 @@ public class LoginActivity extends AppCompatActivity  {
             toast1.show();
 
         } else{
-            mAuth.createUserWithEmailAndPassword(email.getText().toString(), pass.getText().toString());
-             Toast toast1 = Toast.makeText(getApplicationContext(), "pass"+pass.getText(), Toast.LENGTH_LONG);
+            mAuth.createUserWithEmailAndPassword(email.getText().toString(), pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                       paso();
 
-            toast1.show();
-            Intent nuevo = new Intent(this,MainActivity.class);
-            ProviderType provider = ProviderType.BASIC;
-            nuevo.putExtra("email",  email.getText().toString());
-            nuevo.putExtra("provider",provider.name());
-            startActivity(nuevo);
+                    } else {
+                        // Task failed with an exception
+                        Exception exception = task.getException();
+                    }
+                }});
+
+
 
 
         }
+
     }
+       private void paso(){
+           Toast toast1 = Toast.makeText(getApplicationContext(), "pass"+pass.getText(), Toast.LENGTH_LONG);
+
+           toast1.show();
+           Intent nuevo = new Intent(this,MainActivity.class);
+           ProviderType provider = ProviderType.BASIC;
+           nuevo.putExtra("email",  email.getText().toString());
+           nuevo.putExtra("provider",provider.name());
+           startActivity(nuevo);
+           finish();
+       }
 
 
 
