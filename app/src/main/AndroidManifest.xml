@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Academic">
         <activity
+            android:name=".Activity_Ajuste"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Curso"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Estudiante"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_Notas"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
