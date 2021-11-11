@@ -1,6 +1,7 @@
 package com.example.academic;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -48,7 +49,7 @@ public class LoginActivity extends AppCompatActivity  {
         likeAnimation(imagen,R.raw.signin);
 
     }
-    public void trasladar(View view){
+    public void registrar(View view){
 
         email= findViewById(R.id.email);
         pass=findViewById(R.id.pass);
@@ -58,19 +59,76 @@ public class LoginActivity extends AppCompatActivity  {
 
             toast1.show();
 
-        } else{
-            mAuth.createUserWithEmailAndPassword(email.getText().toString(), pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                       paso();
+        }
+        else{
+            if(pass.getText().length()>=6) {
+                mAuth.createUserWithEmailAndPassword(email.getText().toString(), pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            paso();
 
-                    } else {
-                        // Task failed with an exception
-                        Exception exception = task.getException();
+                        } else {
+                            new AlertDialog.Builder(LoginActivity.this, R.style.ThemeOverlay_MaterialComponents_Dialog_Alert)
+                                    .setTitle("Error en el registro")
+                                    .setMessage("No fue posible realizar la autentificacion el usuario ya fue registrado.")
+                                    .setPositiveButton("Aceptar", null)
+                                    .create()
+                                    .show();
+                        }
                     }
-                }});
+                });
 
+            } else{
+
+                Toast toast2 =  Toast.makeText(getApplicationContext(),"la contraseña debe tener mas de 6 caracteres",Toast.LENGTH_LONG);
+                toast2.show();
+
+
+            }
+
+
+
+        }
+
+    }
+    public void Login(View view){
+
+        email= findViewById(R.id.email);
+        pass=findViewById(R.id.pass);
+
+        if(email.getText().toString().isEmpty() || pass.getText().toString().isEmpty()){
+            Toast toast1 = Toast.makeText(getApplicationContext(), "Rellene todos los datos", Toast.LENGTH_LONG);
+
+            toast1.show();
+
+        }
+        else{
+            if(pass.getText().length()>=6) {
+                mAuth.signInWithEmailAndPassword(email.getText().toString(), pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            paso();
+
+                        } else {
+                            new AlertDialog.Builder(LoginActivity.this, R.style.ThemeOverlay_MaterialComponents_Dialog_Alert)
+                                    .setTitle("Error en el Inicio de sesion")
+                                    .setMessage("No fue posible realizar la autentificacion verifique  que los datos sean corretos y que ya este registrado.")
+                                    .setPositiveButton("Aceptar", null)
+                                    .create()
+                                    .show();
+                        }
+                    }
+                });
+
+            } else{
+
+                Toast toast2 =  Toast.makeText(getApplicationContext(),"contraseña Incorrecta",Toast.LENGTH_LONG);
+                toast2.show();
+
+
+            }
 
 
 
