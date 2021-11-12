@@ -7,6 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+
+enum ProviderType{
+    BASIC
+}
 public class Pantalla_Principal_Activity extends AppCompatActivity implements View.OnClickListener {
 
     public CardView notas,estudiante,curso,ajustes;
@@ -25,6 +30,13 @@ public class Pantalla_Principal_Activity extends AppCompatActivity implements Vi
         estudiante.setOnClickListener(this);
         curso.setOnClickListener(this);
         ajustes.setOnClickListener(this);
+
+    }
+    public void logout(View view){
+        FirebaseAuth.getInstance().signOut();
+        Intent nuevo = new Intent(this,LoginActivity.class);
+        startActivity(nuevo);
+
 
     }
 

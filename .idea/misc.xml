@@ -3,8 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/willi/AndroidStudioProjects/Academic/app/src/main/res/layout/activity_curso.xml" value="0.1213768115942029" />
-        <entry key="..\:/Users/willi/AndroidStudioProjects/Academic/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/android/Academic/app/src/main/res/drawable-port/ddd.xml" value="0.1125" />
+        <entry key="..\:/android/Academic/app/src/main/res/drawable/1.xml" value="0.1125" />
+        <entry key="..\:/android/Academic/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2203125" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/activity_ajuste.xml" value="0.1" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/activity_curso.xml" value="0.1" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/activity_estudiante.xml" value="0.1" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/activity_notas.xml" value="0.1" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/activity_pantalla_principal.xml" value="0.16259057971014493" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/activity_splash_screen.xml" value="0.1671195652173913" />
+        <entry key="..\:/android/Academic/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.146875" />
       </map>
     </option>
   </component>
