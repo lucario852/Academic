@@ -84,11 +84,10 @@
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#EFE8E8"
-            android:text="Google"
-            android:textColor="@color/black"
-            app:icon="@drawable/common_google_signin_btn_icon_light_normal" />
+            android:backgroundTint="#FFFFFF"
+            android:text="iniciar sesion con Google"
+            android:textColor="#888888" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
