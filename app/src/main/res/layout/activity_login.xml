@@ -93,6 +93,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#FFFFFF"
             android:drawableLeft="@drawable/ic_google"
+            android:onClick="Login_google"
             android:text="iniciar sesion Google"
             android:textColor="#888888" />
     </LinearLayout>

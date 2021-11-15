@@ -25,9 +25,6 @@ public class Pantalla_Principal_Activity extends AppCompatActivity implements Vi
 
     String email;
     String provider;
-    //guardado de datos
-
-
 
 
     @Override
