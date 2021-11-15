@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -34,6 +37,17 @@ public class LoginActivity extends AppCompatActivity  {
         mAuth = FirebaseAuth.getInstance();
 
 
+
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        LinearLayout  linea = findViewById(R.id.authlayaut);
+        linea.setVisibility(View.VISIBLE);
+        sesion();
+
+
+
     }
 
 
@@ -42,6 +56,7 @@ public class LoginActivity extends AppCompatActivity  {
         super.onResume();
         LottieAnimationView imagen =findViewById(R.id.imageView);
         likeAnimation(imagen,R.raw.signin);
+
 
     }
     public void Registro(View view){
@@ -127,15 +142,35 @@ public class LoginActivity extends AppCompatActivity  {
         imagenView.playAnimation();
 
     }
+    private void sesion(){
+        SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
+        String email= sharedPref.getString("email",null);
+        String provider= sharedPref.getString("provider",null);
+        if(email!=null && provider !=null){
+            LinearLayout  linea = findViewById(R.id.authlayaut);
+            linea.setVisibility(View.INVISIBLE);
+            paso(email,ProviderType.valueOf(provider));
+
+        }
+    }
 
     private void paso(){
-        Toast toast1 = Toast.makeText(getApplicationContext(), "pass"+pass.getText(), Toast.LENGTH_LONG);
+        Toast toast1 = Toast.makeText(getApplicationContext(), "Autentificacion exitosa", Toast.LENGTH_LONG);
 
         toast1.show();
-        Intent nuevo = new Intent(this, Pantalla_Principal_Activity.class);
+        Intent nuevo = new Intent(this, Pantalla_Principal_Activity.class);nuevo.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         ProviderType provider = ProviderType.BASIC;
         nuevo.putExtra("email",  email.getText().toString());
         nuevo.putExtra("provider",provider.name());
+        startActivity(nuevo);
+
+
+    }
+    public void  paso( String e, ProviderType p){
+
+        Intent nuevo = new Intent(this, Pantalla_Principal_Activity.class);nuevo.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        nuevo.putExtra("email",  e);
+        nuevo.putExtra("provider",p.name());
         startActivity(nuevo);
 
 
