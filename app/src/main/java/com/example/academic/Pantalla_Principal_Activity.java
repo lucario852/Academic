@@ -15,10 +15,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-enum ProviderType{
-    BASIC,
-    GOOGLE
-}
+
 public class Pantalla_Principal_Activity extends AppCompatActivity implements View.OnClickListener {
 
     public CardView notas,estudiante,curso,ajustes;

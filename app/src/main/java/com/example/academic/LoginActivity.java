@@ -82,23 +82,23 @@ public class LoginActivity extends AppCompatActivity  {
 
         } else{
             if(pass.getText().length()>=6){
-            mAuth.createUserWithEmailAndPassword(email.getText().toString(), pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        paso();
-                    } else {
-                        new AlertDialog.Builder(LoginActivity.this,R.style.Base_Theme_AppCompat_Dialog_Alert)
-                                .setTitle("Error en registro")
-                                .setMessage("Ha ocurriodo un errror con la autentificacion, la cuenta ya se encuentra registrada.")
-                                .setPositiveButton("Aceptar",null)
-                                .create()
-                                .show();
+                mAuth.createUserWithEmailAndPassword(email.getText().toString(), pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            paso();
+                        } else {
+                            new AlertDialog.Builder(LoginActivity.this)
+                                    .setTitle("Error en registro")
+                                    .setMessage("Ha ocurriodo un errror con la autentificacion, la cuenta ya se encuentra registrada.")
+                                    .setPositiveButton("Aceptar",null)
+                                    .create()
+                                    .show();
 
 
+                        }
                     }
-                }
-            });
+                });
             } else {
 
                 Toast toast1 = Toast.makeText(getApplicationContext(), "La contraseña debe tener mas de 6 caracteres.", Toast.LENGTH_LONG);
@@ -153,8 +153,8 @@ public class LoginActivity extends AppCompatActivity  {
                 .requestEmail()
                 .build();
 
-       GoogleSignInClient google = GoogleSignIn.getClient(this,gso);
-       startActivityForResult(google.getSignInIntent(),Google_Sign_In);
+        GoogleSignInClient google = GoogleSignIn.getClient(this,gso);
+        startActivityForResult(google.getSignInIntent(),Google_Sign_In);
 
 
     }
@@ -170,13 +170,13 @@ public class LoginActivity extends AppCompatActivity  {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 if(account != null){
                     AuthCredential account1 = GoogleAuthProvider.getCredential(account.getIdToken(),null);
-                mAuth.signInWithCredential(account1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    mAuth.signInWithCredential(account1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 paso(account.getEmail(),ProviderType.GOOGLE);
                             } else {
-                                new AlertDialog.Builder(LoginActivity.this,R.style.Base_Theme_AppCompat_Dialog_Alert)
+                                new AlertDialog.Builder(LoginActivity.this)
                                         .setTitle("Error en el inicio de sesion")
                                         .setMessage("Ha ocurriodo un errror con la autentificacion ")
                                         .setPositiveButton("Aceptar",null)
@@ -222,7 +222,7 @@ public class LoginActivity extends AppCompatActivity  {
         Toast toast1 = Toast.makeText(getApplicationContext(), "Autentificacion exitosa", Toast.LENGTH_LONG);
 
         toast1.show();
-        Intent nuevo = new Intent(this, Pantalla_Principal_Activity.class);nuevo.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        Intent nuevo = new Intent(this, NavegationDrawable.class);nuevo.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         ProviderType provider = ProviderType.BASIC;
         nuevo.putExtra("email",  email.getText().toString());
         nuevo.putExtra("provider",provider.name());
@@ -232,7 +232,7 @@ public class LoginActivity extends AppCompatActivity  {
     }
     public void  paso( String e, ProviderType p){
 
-        Intent nuevo = new Intent(this, Pantalla_Principal_Activity.class);nuevo.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        Intent nuevo = new Intent(this, NavegationDrawable.class);nuevo.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         nuevo.putExtra("email",  e);
         nuevo.putExtra("provider",p.name());
         startActivity(nuevo);

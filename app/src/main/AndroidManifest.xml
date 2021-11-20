@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.one">
         <activity
+            android:name=".NavegationDrawable"
+            android:exported="false"
+            android:label="@string/title_activity_navegation_drawable"
+            android:theme="@style/Theme.one.NoActionBar" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity

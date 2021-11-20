@@ -9,14 +9,25 @@
         <entry key="..\:/android/Academic/app/src/main/res/drawable/ic_academic_background.xml" value="0.12447916666666667" />
         <entry key="..\:/android/Academic/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/android/Academic/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2203125" />
+        <entry key="..\:/android/Academic/app/src/main/res/drawable/ic_menu_camera.xml" value="0.18518518518518517" />
+        <entry key="..\:/android/Academic/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.18518518518518517" />
+        <entry key="..\:/android/Academic/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.18518518518518517" />
+        <entry key="..\:/android/Academic/app/src/main/res/drawable/side_nav_bar.xml" value="0.18518518518518517" />
         <entry key="..\:/android/Academic/app/src/main/res/layout/activity_ajuste.xml" value="0.1" />
         <entry key="..\:/android/Academic/app/src/main/res/layout/activity_curso.xml" value="0.1" />
         <entry key="..\:/android/Academic/app/src/main/res/layout/activity_estudiante.xml" value="0.1" />
         <entry key="..\:/android/Academic/app/src/main/res/layout/activity_login.xml" value="0.5" />
         <entry key="..\:/android/Academic/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/activity_navegation_drawable.xml" value="0.17798913043478262" />
         <entry key="..\:/android/Academic/app/src/main/res/layout/activity_notas.xml" value="0.1" />
         <entry key="..\:/android/Academic/app/src/main/res/layout/activity_pantalla_principal.xml" value="0.16259057971014493" />
         <entry key="..\:/android/Academic/app/src/main/res/layout/activity_splash_screen.xml" value="0.1671195652173913" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/app_bar_navegation_drawable.xml" value="0.17798913043478262" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/content_navegation_drawable.xml" value="0.17798913043478262" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/fragment_gallery.xml" value="0.17798913043478262" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/fragment_home.xml" value="0.17798913043478262" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/fragment_slideshow.xml" value="0.17798913043478262" />
+        <entry key="..\:/android/Academic/app/src/main/res/layout/nav_header_navegation_drawable.xml" value="0.17798913043478262" />
         <entry key="..\:/android/Academic/app/src/main/res/mipmap-anydpi-v26/ic_Academic.xml" value="0.1125" />
         <entry key="..\:/android/Academic/app/src/main/res/mipmap-anydpi-v26/ic_academic.xml" value="0.12447916666666667" />
         <entry key="..\:/android/Academic/app/src/main/res/mipmap-anydpi-v26/ic_academic_round.xml" value="0.1125" />
