@@ -39,7 +39,7 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/n"
-                android:layout_width="wrap_content"
+                android:layout_width="146dp"
                 android:layout_height="wrap_content"
                 android:layout_row="0"
                 android:layout_rowWeight="1"
@@ -75,8 +75,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/e"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="183dp"
+                android:layout_height="252dp"
                 android:layout_row="0"
                 android:layout_rowWeight="1"
                 android:layout_column="1"

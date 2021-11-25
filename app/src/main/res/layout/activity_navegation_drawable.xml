@@ -21,5 +21,31 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_navegation_drawable"
-        app:menu="@menu/activity_main_drawer" />
+        app:menu="@menu/activity_main_drawer"  >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="1dp"
+                android:layout_height="80dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/Logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:backgroundTint="#105652"
+
+                android:onClick="logout"
+                android:text="Cerrar Sesion" />
+        </LinearLayout>
+
+
+    </com.google.android.material.navigation.NavigationView>
+
 </androidx.drawerlayout.widget.DrawerLayout>

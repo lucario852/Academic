@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.navigation.NavController;
@@ -35,6 +34,9 @@ public class NavegationDrawable extends AppCompatActivity {
     private ActivityNavegationDrawableBinding binding;
     public CardView notas,estudiante,curso,ajustes;
 
+
+
+
     String email;
     String provider;
     @Override
@@ -50,6 +52,9 @@ public class NavegationDrawable extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                TextView t = findViewById(R.id.correo);
+
+
                 datos();
             }
         });
@@ -61,16 +66,21 @@ public class NavegationDrawable extends AppCompatActivity {
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
+
+
+
+
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navegation_drawable);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         Bundle parametros = this.getIntent().getExtras();
-        TextView t1 =findViewById(R.id.bienvenido);
+
 
         if(parametros !=null){
             email = parametros.getString("email");
             provider = parametros.getString("provider");
-            t1.setText(email);
+
             //core.setText(email);
         }
         SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
@@ -87,14 +97,28 @@ public class NavegationDrawable extends AppCompatActivity {
 
     }
     public void logout(View view){
-        SharedPreferences sharedPref = this.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.clear();
-        editor.apply();
-        FirebaseAuth.getInstance().signOut();
-        Intent nuevo = new Intent(this,LoginActivity.class);
-        nuevo.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(nuevo);
+        new AlertDialog.Builder(this)
+
+                .setMessage("¿Desea cerrar sesion en academic?")
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        finish();
+                        SharedPreferences sharedPref = NavegationDrawable.this.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.clear();
+                        editor.apply();
+                        FirebaseAuth.getInstance().signOut();
+                        Intent nuevo = new Intent(NavegationDrawable.this,LoginActivity.class);
+                        nuevo.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(nuevo);
+                    }
+                })
+                .setNegativeButton("Cancelar",null)
+                .create()
+                .show();
+
+
 
 
     }
@@ -110,10 +134,14 @@ public class NavegationDrawable extends AppCompatActivity {
 
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navegation_drawable, menu);
+        TextView t = findViewById(R.id.correo);
+        t.setText(email);
         return true;
     }
 

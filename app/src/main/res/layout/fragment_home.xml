@@ -9,10 +9,7 @@
 
     >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+
 
         <TextView
             android:id="@+id/bienvenido"
@@ -23,13 +20,6 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/Logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#105652"
-            android:onClick="logout"
-            android:text="Cerrar   " />
 
         <GridLayout
             android:layout_width="match_parent"
@@ -184,7 +174,7 @@
 
         </GridLayout>
 
-    </LinearLayout>
+
 
 </RelativeLayout>
 
