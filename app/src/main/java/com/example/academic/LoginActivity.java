@@ -33,12 +33,20 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthCredential;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity  {
     private EditText email;
     private EditText pass;
     private FirebaseAuth mAuth;
     private int Google_Sign_In=100;
+    private  FirebaseFirestore db = FirebaseFirestore.getInstance();
+    public HashMap map;
+
 
 
     @Override
@@ -222,8 +230,14 @@ public class LoginActivity extends AppCompatActivity  {
         Toast toast1 = Toast.makeText(getApplicationContext(), "Autentificacion exitosa", Toast.LENGTH_LONG);
 
         toast1.show();
-        Intent nuevo = new Intent(this, NavegationDrawable.class);nuevo.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         ProviderType provider = ProviderType.BASIC;
+        Map<String, Object> user = new HashMap<>();
+        user.put("Provider", provider.name());
+        db.collection("usuarios").document( email.getText().toString()).set(user);
+
+
+        Intent nuevo = new Intent(this, NavegationDrawable.class);nuevo.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
         nuevo.putExtra("email",  email.getText().toString());
         nuevo.putExtra("provider",provider.name());
         startActivity(nuevo);
@@ -231,6 +245,10 @@ public class LoginActivity extends AppCompatActivity  {
 
     }
     public void  paso( String e, ProviderType p){
+        Map<String, Object> user = new HashMap<>();
+        user.put("Provider", p.name());
+
+        db.collection("usuarios").document(e).set(user);
 
         Intent nuevo = new Intent(this, NavegationDrawable.class);nuevo.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         nuevo.putExtra("email",  e);

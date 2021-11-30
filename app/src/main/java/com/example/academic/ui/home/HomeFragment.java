@@ -1,5 +1,6 @@
 package com.example.academic.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.academic.Activity_Notas;
+import com.example.academic.NavegationDrawable;
 import com.example.academic.R;
 import com.example.academic.databinding.FragmentHomeBinding;
 
@@ -35,7 +38,6 @@ public class HomeFragment extends Fragment {
 
         return root;
     }
-
 
     @Override
     public void onDestroyView() {

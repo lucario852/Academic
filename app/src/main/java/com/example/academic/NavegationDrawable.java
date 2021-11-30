@@ -96,6 +96,13 @@ public class NavegationDrawable extends AppCompatActivity {
 
 
     }
+    public void notas(View view){
+        Intent nuevo = new Intent(NavegationDrawable.this,Activity_Notas.class);
+        nuevo.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(nuevo);
+        finish();
+    }
+
     public void logout(View view){
         new AlertDialog.Builder(this)
 
@@ -133,6 +140,7 @@ public class NavegationDrawable extends AppCompatActivity {
         }
 
     }
+
 
 
 

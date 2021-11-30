@@ -39,10 +39,8 @@
             android:exported="false" />
         <activity
             android:name=".Activity_Notas"
-            android:exported="false" />
-        <activity
-            android:name=".Pantalla_Principal_Activity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Agregar materias"/>
         <activity
             android:name=".SplashScreen"
             android:exported="true">
